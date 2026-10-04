@@ -1,0 +1,33 @@
+name: Claim Drift tests
+
+on:
+  push:
+    paths:
+      - "claim_drift.py"
+      - "pyproject.toml"
+      - "tests/**"
+      - "examples/**"
+      - ".github/workflows/claim-drift-tests.yml"
+  pull_request:
+    paths:
+      - "claim_drift.py"
+      - "pyproject.toml"
+      - "tests/**"
+      - "examples/**"
+      - ".github/workflows/claim-drift-tests.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Validate example
+        run: python claim_drift.py check examples/demo.json
