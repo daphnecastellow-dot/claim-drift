@@ -1,0 +1,46 @@
+{
+  "format": "claim-drift/0.1",
+  "title": "North Reach door-story drift",
+  "created_at": "2026-10-04T21:48:00Z",
+  "sources": [
+    {"id":"S001","label":"1904 station log","kind":"primary","date":"1904-11-03","url":"","note":"Fictional demonstration source."},
+    {"id":"S002","label":"1904 newspaper report","kind":"contemporary-report","date":"1904-11-05","url":"","note":"Fictional demonstration source."},
+    {"id":"S003","label":"1978 folklore book","kind":"later-retelling","date":"1978","url":"","note":"Fictional demonstration source."},
+    {"id":"S004","label":"2025 folklore article","kind":"later-retelling","date":"2025","url":"","note":"Fictional demonstration source."}
+  ],
+  "versions": [
+    {"id":"V001","label":"station log","text":"The north door was open.","sources":["S001"],"note":""},
+    {"id":"V002","label":"newspaper","text":"The north door was found open.","sources":["S002"],"note":""},
+    {"id":"V003","label":"folklore book","text":"The locked north door had been forced open.","sources":["S003"],"note":""},
+    {"id":"V004","label":"modern article","text":"The locked north door had been violently smashed inward.","sources":["S004"],"note":""}
+  ],
+  "transitions": [
+    {
+      "id":"T001",
+      "from":"V001",
+      "to":"V002",
+      "changes":[
+        {"type":"addition","before":"","after":"found","note":"The later report adds discovery framing without changing the door state."}
+      ]
+    },
+    {
+      "id":"T002",
+      "from":"V002",
+      "to":"V003",
+      "changes":[
+        {"type":"addition","before":"north door","after":"locked north door","note":"The later version introduces a lock state."},
+        {"type":"causal-shift","before":"was found open","after":"had been forced open","note":"The later wording adds an implied mechanism for the open door."},
+        {"type":"certainty-shift","before":"was found open","after":"had been forced open","note":"The later wording states the mechanism rather than only the observed condition."}
+      ]
+    },
+    {
+      "id":"T003",
+      "from":"V003",
+      "to":"V004",
+      "changes":[
+        {"type":"intensification","before":"forced open","after":"violently smashed inward","note":"The later wording becomes more vivid and physically forceful."},
+        {"type":"semantic-substitution","before":"forced open","after":"smashed inward","note":"The action description changes from a general forced opening to a specific destructive action."}
+      ]
+    }
+  ]
+}
