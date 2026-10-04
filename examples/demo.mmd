@@ -1,0 +1,8 @@
+flowchart LR
+  V001["V001 · The north door was open."]
+  V002["V002 · The north door was found open."]
+  V003["V003 · The locked north door had been forced open."]
+  V004["V004 · The locked north door had been violently smashed inward."]
+  V001 -->|"T001 · addition"| V002
+  V002 -->|"T002 · addition, causal-shift, certainty-shift"| V003
+  V003 -->|"T003 · intensification, semantic-substitution"| V004
