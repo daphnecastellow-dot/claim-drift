@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "claim-drift"
+version = "0.1.0"
+description = "Track how claims change across versions without inferring motive."
+requires-python = ">=3.10"
+
+[project.scripts]
+claim-drift = "claim_drift:main"
+
+[tool.setuptools]
+py-modules = ["claim_drift"]
